@@ -29,5 +29,6 @@
   "selectDelete": "Selected Employee record of",
   "selectDelete2": "will be deleted",
   "proceed": "Proceed",
-  "allDeleted": "Delete Selected"
+  "allDeleted": "Delete Selected",
+  "enter": "Enter"
 }

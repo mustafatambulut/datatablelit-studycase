@@ -5,7 +5,8 @@ import { IconButton } from "../shared/icon-button";
 import { EmptyState } from "../empty-state";
 import { dataTableStyles } from "./data-table.css.js";
 import "../shared/delete-modal/index";
-class DataTable extends LitElement {
+// import { store } from "../../store/store.js";
+export class DataTable extends LitElement {
   static styles = dataTableStyles;
 
   static properties = {
@@ -139,7 +140,6 @@ class DataTable extends LitElement {
   }
 
   handleInput(event, header) {
-    debugger;
     // this.modalData = {...this.modalData, [header]: event.target.value};
     this.modalData[header] = event.target.value;
   }
@@ -276,6 +276,7 @@ class DataTable extends LitElement {
   render() {
     this.updateDisplayedData();
 
+    debugger;
     return html`
       ${this.selectedRows.length !== 0
         ? html`
@@ -294,10 +295,6 @@ class DataTable extends LitElement {
                   ? translations.getTranslation("edit")
                   : translations.getTranslation("addRow")}
               </div>
-              <!-- <h3>${this.editMode
-                ? "Edit Record"
-                : "Add New Record"}</h3> -->
-
               <div class="modal-body">
                 ${this.editMode
                   ? Object.entries(this.editedRow || {})
@@ -330,7 +327,13 @@ class DataTable extends LitElement {
                               class="${header}"
                               .value="${this.modalData[header] || ""}"
                               @input="${(e) => this.handleInput(e, header)}"
-                              placeholder="Enter ${header}"
+                              placeholder="${this.currentLanguage === "en"
+                                ? translations.getTranslation("enter") +
+                                  " " +
+                                  translations.getTranslation(header)
+                                : translations.getTranslation(header) +
+                                  " " +
+                                  translations.getTranslation("enter")}"
                             />
                           `
                         : null

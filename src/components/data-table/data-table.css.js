@@ -1,4 +1,4 @@
-import {css} from 'lit';
+import { css } from "lit";
 
 export const dataTableStyles = css`
   table {
@@ -28,8 +28,9 @@ export const dataTableStyles = css`
   }
 
   .modal-header {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 16px;
+    color: #ff6200;
   }
   .modal-body {
     display: flex;

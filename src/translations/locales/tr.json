@@ -29,5 +29,6 @@
   "selectDelete": "Seçilen çalışan kaydı",
   "selectDelete2": "silinecek",
   "proceed": "Devam Et",
-   "allDeleted": "Seçilenleri Sil"
+  "allDeleted": "Seçilenleri Sil",
+  "enter": "Giriniz"
 }
