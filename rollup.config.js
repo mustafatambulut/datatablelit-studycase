@@ -30,12 +30,16 @@ export default {
     html({
       include: "**/*.html",
     }),
-    // serve({
-    //   open: true,
-    //   verbose: true,
-    //   contentBase: ["", "src", "dist"],
-    //   host: "0.0.0.0",
-    //   port: 3001,
-    // }),
+    serve({
+      open: true,
+      verbose: true,
+      contentBase: ["", "src", "dist"],
+      host: "0.0.0.0",
+      port: 3001,
+      historyApiFallback: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    }),
   ],
 };

@@ -1,0 +1,79 @@
+<h1>LitElement JavaScript starter</h1>
+<p>This project includes a sample component using LitElement with JavaScript.</p>
+<p>This template is generated from the <code>lit-starter-js</code> package in <a href="https://github.com/lit/lit">the main Lit
+repo</a>. Issues and PRs for this template should be
+filed in that repo.</p>
+<h2>About this release</h2>
+<p>This is a pre-release of Lit 3.0, the next major version of Lit.</p>
+<p>Lit 3.0 has very few breaking changes from Lit 2.0:</p>
+<ul>
+<li>Drops support for IE11</li>
+<li>Published as ES2021</li>
+<li>Removes a couple of deprecated Lit 1.x APIs</li>
+</ul>
+<p>Lit 3.0 should require no changes to upgrade from Lit 2.0 for the vast majority of users. Once the full release is published, most apps and libraries will be able to extend their npm version ranges to include both 2.x and 3.x, like <code>&quot;^2.7.0 || ^3.0.0&quot;</code>.</p>
+<p>Lit 2.x and 3.0 are <em>interoperable</em>: templates, base classes, directives, decorators, etc., from one version of Lit will work with those from another.</p>
+<p>Please file any issues you find on our <a href="https://github.com/lit/lit/issues">issue tracker</a>.</p>
+<h2>Setup</h2>
+<p>Install dependencies:</p>
+<pre><code class="language-bash">npm i
+</code></pre>
+<h2>Testing</h2>
+<p>This sample modern-web.dev's
+<a href="https://www.npmjs.com/package/@web/test-runner">@web/test-runner</a> for testing. See the
+<a href="https://modern-web.dev/docs/test-runner/overview">modern-web.dev testing documentation</a> for
+more information.</p>
+<p>Tests can be run with the <code>test</code> script, which will run your tests against Lit's development mode (with more verbose errors) as well as against Lit's production mode:</p>
+<pre><code class="language-bash">npm test
+</code></pre>
+<p>For local testing during development, the <code>test:dev:watch</code> command will run your tests in Lit's development mode (with verbose errors) on every change to your source files:</p>
+<pre><code class="language-bash">npm test:watch
+</code></pre>
+<p>Alternatively the <code>test:prod</code> and <code>test:prod:watch</code> commands will run your tests in Lit's production mode.</p>
+<h2>Dev Server</h2>
+<p>This sample uses modern-web.dev's <a href="https://www.npmjs.com/package/@web/dev-server">@web/dev-server</a> for previewing the project without additional build steps. Web Dev Server handles resolving Node-style &quot;bare&quot; import specifiers, which aren't supported in browsers. It also automatically transpiles JavaScript and adds polyfills to support older browsers. See <a href="https://modern-web.dev/docs/dev-server/overview/">modern-web.dev's Web Dev Server documentation</a> for more information.</p>
+<p>To run the dev server and open the project in a new browser tab:</p>
+<pre><code class="language-bash">npm run serve
+</code></pre>
+<p>There is a development HTML file located at <code>/dev/index.html</code> that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use <code>npm run serve:prod</code>.</p>
+<h2>Editing</h2>
+<p>If you use VS Code, we highly recommend the <a href="https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin">lit-plugin extension</a>, which enables some extremely useful features for lit-html templates:</p>
+<ul>
+<li>Syntax highlighting</li>
+<li>Type-checking</li>
+<li>Code completion</li>
+<li>Hover-over docs</li>
+<li>Jump to definition</li>
+<li>Linting</li>
+<li>Quick Fixes</li>
+</ul>
+<p>The project is setup to recommend lit-plugin to VS Code users if they don't already have it installed.</p>
+<h2>Linting</h2>
+<p>Linting of JavaScript files is provided by <a href="eslint.org">ESLint</a>. In addition, <a href="https://www.npmjs.com/package/lit-analyzer">lit-analyzer</a> is used to type-check and lint lit-html templates with the same engine and rules as lit-plugin.</p>
+<p>The rules are mostly the recommended rules from each project, but some have been turned off to make LitElement usage easier. The recommended rules are pretty strict, so you may want to relax them by editing <code>.eslintrc.json</code>.</p>
+<p>To lint the project run:</p>
+<pre><code class="language-bash">npm run lint
+</code></pre>
+<h2>Formatting</h2>
+<p><a href="https://prettier.io/">Prettier</a> is used for code formatting. It has been pre-configured according to the Lit's style. You can change this in <code>.prettierrc.json</code>.</p>
+<p>Prettier has not been configured to run when committing files, but this can be added with Husky and <code>pretty-quick</code>. See the <a href="https://prettier.io/">prettier.io</a> site for instructions.</p>
+<h2>Static Site</h2>
+<p>This project includes a simple website generated with the <a href="https://11ty.dev">eleventy</a> static site generator and the templates and pages in <code>/docs-src</code>. The site is generated to <code>/docs</code> and intended to be checked in so that GitHub pages can serve the site <a href="https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">from <code>/docs</code> on the main branch</a>.</p>
+<p>To enable the site go to the GitHub settings and change the GitHub Pages &quot;Source&quot; setting to &quot;main branch /docs folder&quot;.</p></p>
+<p>To build the site, run:</p>
+<pre><code class="language-bash">npm run docs
+</code></pre>
+<p>To serve the site locally, run:</p>
+<pre><code class="language-bash">npm run docs:serve
+</code></pre>
+<p>To watch the site files, and re-build automatically, run:</p>
+<pre><code class="language-bash">npm run docs:gen:watch
+</code></pre>
+<p>The site will usually be served at http://localhost:8000.</p>
+<p><strong>Note</strong>: The project uses Rollup to bundle and minify the source code for the docs site and not to publish to NPM. For bundling and minification, check the <a href="#bundling-and-minification">Bundling and minification</a> section.</p>
+<h2>Bundling and minification</h2>
+<p>As stated in the <a href="#static-site">static site generation</a> section, the bundling and minification setup in the Rollup configuration in this project is there specifically for the docs generation.</p>
+<p>We recommend publishing components as unoptimized JavaScript modules and performing build-time optimizations at the application level. This gives build tools the best chance to deduplicate code, remove dead code, and so on.</p>
+<p>Please check the <a href="https://lit.dev/docs/tools/publishing/#publishing-best-practices">Publishing best practices</a> for information on publishing reusable Web Components, and <a href="https://lit.dev/docs/tools/production/">Build for production</a> for building application projects that include LitElement components, on the Lit site.</p>
+<h2>More information</h2>
+<p>See <a href="https://lit.dev/docs/getting-started/">Get started</a> on the Lit site for more information.</p>
