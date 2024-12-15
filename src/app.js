@@ -1,13 +1,13 @@
-import {LitElement, html, css} from 'lit';
-import './components/header/header-component.js';
-import './components/data-table/data-table.js';
-import {translations} from './components/shared/translation/index.js';
+import { LitElement, html, css } from "lit";
+import "./components/header/header-component.js";
+import "./components/data-table/data-table.js";
+import { translations } from "./components/shared/translation/index.js";
 
 class App extends LitElement {
   static styles = css`
     :host {
       display: block;
-      font-family: 'Arial', sans-serif;
+      font-family: "Arial", sans-serif;
     }
 
     main {
@@ -40,24 +40,24 @@ class App extends LitElement {
   handleAddRow(event) {
     const newRow = event.detail;
     // DataTable bileşenini bul ve addRow metodunu çağır
-    const dataTable = this.renderRoot.querySelector('data-table');
+    const dataTable = this.renderRoot.querySelector("data-table");
     if (dataTable) {
       dataTable.addRows(newRow);
     }
   }
 
   render() {
-    const table = document.getElementById('jsonTable');
+    const table = document.getElementById("jsonTable");
 
     if (table) {
       // Fetch data from the JSON file
-      fetch('/src/services/data.json')
+      fetch("../src/assets/data/data.json")
         .then((response) => response.json())
         .then((json) => {
           table.headers = json.headers;
           table.data = json.data;
         })
-        .catch((error) => console.error('Error loading JSON:', error));
+        .catch((error) => console.error("Error loading JSON:", error));
     }
 
     return html`
@@ -68,7 +68,7 @@ class App extends LitElement {
 
       <main>
         
-        <h2>${translations.getTranslation('employeeList')}</h1>
+        <h2>${translations.getTranslation("employeeList")}</h1>
         <data-table id="jsonTable"></data-table>
       </main>
     `;
@@ -80,4 +80,4 @@ class App extends LitElement {
   }
 }
 
-customElements.define('my-app', App);
+customElements.define("my-app", App);

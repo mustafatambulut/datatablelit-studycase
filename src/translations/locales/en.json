@@ -23,5 +23,11 @@
   "email": "Email",
   "department": "Department",
   "position": "Position",
-  "employeeList": "Employee List"
+  "employeeList": "Employee List",
+  "sure": "Are you sure?",
+  "allDelete": "Selected Whole Employee record will be deleted",
+  "selectDelete": "Selected Employee record of",
+  "selectDelete2": "will be deleted",
+  "proceed": "Proceed",
+  "allDeleted": "Delete Selected"
 }

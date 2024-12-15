@@ -1,31 +1,12 @@
-import {LitElement, html, css} from 'lit';
-
+import { LitElement, html, css } from "lit";
+import { iconButtonStyles } from "./styles.css";
 export class IconButton extends LitElement {
+  static styles = iconButtonStyles;
   static properties = {
-    icon: {type: String}, // Font Awesome ikonu adı (ör: 'fa-edit', 'fa-trash')
-    color: {type: String}, // Renk özelliği
-    size: {type: String}, // Boyut özelliği (ör: '16px', '24px')
+    icon: { type: String }, // Font Awesome ikonu adı (ör: 'fa-edit', 'fa-trash')
+    color: { type: String }, // Renk özelliği
+    size: { type: String }, // Boyut özelliği (ör: '16px', '24px')
   };
-
-  static styles = css`
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    button:hover {
-      opacity: 0.8;
-    }
-    i {
-      font-size: var(--icon-size, 16px);
-      color: var(--icon-color, black);
-    }
-  `;
-
   render() {
     return html`
       <link
@@ -39,4 +20,4 @@ export class IconButton extends LitElement {
   }
 }
 
-customElements.define('icon-button', IconButton);
+customElements.define("icon-button", IconButton);

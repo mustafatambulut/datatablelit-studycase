@@ -11,7 +11,7 @@
     "path": "./src/mock/path.js"
   },
   "scripts": {
-    "buildx": "webpack --config webpack.config.js",
+    "buildw": "webpack --config webpack.config.js",
     "build": "rollup -c",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint '**/*.js'",
@@ -56,7 +56,8 @@
     "mobx": "^6.0.3",
     "mobx-lit-element": "^0.1.2",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-serve": "^1.1.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",

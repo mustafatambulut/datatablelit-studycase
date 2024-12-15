@@ -23,5 +23,11 @@
   "email": "E-posta",
   "department": "Departman",
   "position": "Pozisyon",
-  "employeeList": "Çalışan Listesi"
+  "employeeList": "Çalışan Listesi",
+  "sure": "Emin misiniz?",
+  "allDelete": "Seçilen tüm çalışan kayıtları silinecek",
+  "selectDelete": "Seçilen çalışan kaydı",
+  "selectDelete2": "silinecek",
+  "proceed": "Devam Et",
+   "allDeleted": "Seçilenleri Sil"
 }
