@@ -1,0 +1,34 @@
+{
+  "headers": [
+    "firstName",
+    "lastName",
+    "dateOfEmployment",
+    "dateOfBirth",
+    "phone",
+    "email",
+    "department",
+    "position"
+  ],
+  "data": [
+    {
+      "lastName": "Yılmaz",
+      "id": 1,
+      "dateOfEmployment": "",
+      "firstName": "Ahmet",
+      "email": "ahmet@gmail.com",
+      "department": "Analytics",
+      "dateOfBirth": "",
+      "position": ""
+    },
+    {
+      "lastName": "ssss",
+      "id": 1,
+      "dateOfEmployment": "",
+      "firstName": "ss",
+      "email": "s@gmail.com",
+      "department": "ss",
+      "dateOfBirth": "",
+      "position": ""
+    }
+  ]
+}

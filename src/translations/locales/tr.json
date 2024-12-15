@@ -1,0 +1,27 @@
+{
+  "addRow": "Yeni Kayıt Ekle",
+  "deleteSelected": "Seçilenleri Sil",
+  "edit": "Düzenle",
+  "delete": "Sil",
+  "actions": "Aksiyonlar",
+  "modalTitle": {
+    "add": "Yeni satır ekle",
+    "edit": "Satırı düzenle"
+  },
+  "cancel": "İptal",
+  "save": "Kaydet",
+  "select": "Seç",
+  "previous": "Önceki",
+  "next": "Sonraki",
+  "first": "İlk",
+  "last": "Son",
+  "firstName": "Ad",
+  "lastName": "Soyad",
+  "dateOfEmployment": "İşe Başlama Tarihi",
+  "dateOfBirth": "Doğum Tarihi",
+  "phone": "Telefon",
+  "email": "E-posta",
+  "department": "Departman",
+  "position": "Pozisyon",
+  "employeeList": "Çalışan Listesi"
+}
