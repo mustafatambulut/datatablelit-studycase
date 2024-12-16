@@ -1,136 +1,152 @@
-# LitElement JavaScript starter
+# Data Table with Lit Element
+for ING Hubs
 
-This project includes a sample component using LitElement with JavaScript.
+### Here is the live demo <a href="https://tablelit-for-inghubs.netlify.app" style="font-size: 32px">CLICK TO SEE </a>
 
-This template is generated from the `lit-starter-js` package in [the main Lit
-repo](https://github.com/lit/lit). Issues and PRs for this template should be
-filed in that repo.
+## Technologies used in the project;
 
-## About this release
+* [Lit Latest Version (Lit 3.2.1)](#requirements)
+* [Web Test Runner - @open-wc/testing](#documentation)
+* [Webpack, Babel, Rollup](#documentation)
+* [Prefier: { Prettier is an opinionated code formatter. It is a great way to keep code formatted consistently for you and your team. }](#license)
+* [Husky: { Husky describes itself as “Git hooks made easy”. It provides pre-commit and pre-push hooks. Pre-push/Pre-commit hooks are nothing but commands which you would want to run every time you push/commit something. }](#license)
 
-This is a pre-release of Lit 3.0, the next major version of Lit.
 
-Lit 3.0 has very few breaking changes from Lit 2.0:
+## Requirements:
 
-- Drops support for IE11
-- Published as ES2021
-- Removes a couple of deprecated Lit 1.x APIs
+* [Node](https://nodejs.org/en/)
+* [Lit CLI](https://lit.dev/)
 
-Lit 3.0 should require no changes to upgrade from Lit 2.0 for the vast majority of users. Once the full release is published, most apps and libraries will be able to extend their npm version ranges to include both 2.x and 3.x, like `"^2.7.0 || ^3.0.0"`.
 
-Lit 2.x and 3.0 are _interoperable_: templates, base classes, directives, decorators, etc., from one version of Lit will work with those from another.
+## Quick Start
 
-Please file any issues you find on our [issue tracker](https://github.com/lit/lit/issues).
-
-## Setup
-
-Install dependencies:
+* Install dependencies 
 
 ```bash
-npm i
+npm install
 ```
 
-## Testing
-
-This sample modern-web.dev's
-[@web/test-runner](https://www.npmjs.com/package/@web/test-runner) for testing. See the
-[modern-web.dev testing documentation](https://modern-web.dev/docs/test-runner/overview) for
-more information.
-
-Tests can be run with the `test` script, which will run your tests against Lit's development mode (with more verbose errors) as well as against Lit's production mode:
-
-```bash
-npm test
-```
-
-For local testing during development, the `test:dev:watch` command will run your tests in Lit's development mode (with verbose errors) on every change to your source files:
-
-```bash
-npm test:watch
-```
-
-Alternatively the `test:prod` and `test:prod:watch` commands will run your tests in Lit's production mode.
-
-## Dev Server
-
-This sample uses modern-web.dev's [@web/dev-server](https://www.npmjs.com/package/@web/dev-server) for previewing the project without additional build steps. Web Dev Server handles resolving Node-style "bare" import specifiers, which aren't supported in browsers. It also automatically transpiles JavaScript and adds polyfills to support older browsers. See [modern-web.dev's Web Dev Server documentation](https://modern-web.dev/docs/dev-server/overview/) for more information.
-
-To run the dev server and open the project in a new browser tab:
+* Start server
 
 ```bash
 npm run serve
 ```
 
-There is a development HTML file located at `/dev/index.html` that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use `npm run serve:prod`.
-
-## Editing
-
-If you use VS Code, we highly recommend the [lit-plugin extension](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin), which enables some extremely useful features for lit-html templates:
-
-- Syntax highlighting
-- Type-checking
-- Code completion
-- Hover-over docs
-- Jump to definition
-- Linting
-- Quick Fixes
-
-The project is setup to recommend lit-plugin to VS Code users if they don't already have it installed.
-
-## Linting
-
-Linting of JavaScript files is provided by [ESLint](eslint.org). In addition, [lit-analyzer](https://www.npmjs.com/package/lit-analyzer) is used to type-check and lint lit-html templates with the same engine and rules as lit-plugin.
-
-The rules are mostly the recommended rules from each project, but some have been turned off to make LitElement usage easier. The recommended rules are pretty strict, so you may want to relax them by editing `.eslintrc.json`.
-
-To lint the project run:
+### !! WARNING
+Make sure that when npm is run with run serve, it goes with the http:// request. It is recommended to run in Incognito Tab. 
+As another method I edited the rollup config if ;
 
 ```bash
-npm run lint
+npm run build
 ```
 
-## Formatting
+command and it will automatically open the page for you.
 
-[Prettier](https://prettier.io/) is used for code formatting. It has been pre-configured according to the Lit's style. You can change this in `.prettierrc.json`.
+## Documentation
 
-Prettier has not been configured to run when committing files, but this can be added with Husky and `pretty-quick`. See the [prettier.io](https://prettier.io/) site for instructions.
+The project utilizes Lit Element, a lightweight base class for creating fast, reusable web components. It allows you to build components using modern standards (like HTML templates and reactive properties), enabling clean, modular, and maintainable front-end development.
 
-## Static Site
+### Technical Info
+* Lit Element: For building reusable web components.
+* Vaadin Router: A lightweight client-side router to handle page navigation.
+* State Management:
+  - Redux or MobX: For managing and sharing application state globally.
+  - Alternative options explored: @lit/context, lit-element-state.
+* Husky: For pre-commit hooks to enforce code quality (linting, testing).
+* CSS Modules: For scoped and maintainable stylesheets.
+* Rollup/Vite/Webpack: For bundling and building the project.
+* Localization: Support for multiple languages with a global translation system.
 
-This project includes a simple website generated with the [eleventy](https://11ty.dev) static site generator and the templates and pages in `/docs-src`. The site is generated to `/docs` and intended to be checked in so that GitHub pages can serve the site [from `/docs` on the main branch](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
-To enable the site go to the GitHub settings and change the GitHub Pages &quot;Source&quot; setting to &quot;main branch /docs folder&quot;.</p>
-
-To build the site, run:
+### Project Structure
+Folder structure/pattern;
 
 ```bash
-npm run docs
+project-root/
+│
+├── dist/                # Compiled and bundled files (production build output)
+├── node_modules/        # Node.js dependencies
+│
+├── dev/              # Static assets (icons, images, index.html, etc.)
+│   └── index.html       # Main HTML file
+│
+├── src/                            # Source code folder
+│   ├── assets/                     # Assets folder
+│   │   ├── data/                   # Data-related assets
+│   │   ├── images/                 # Images and media files
+│   │   └── styles/                 # CSS/SCSS stylesheets
+│   │
+│   ├── components/                 # Components for UI
+│   │   ├── add-new-page/           # Component for adding new pages
+│   │   ├── data-table/             # Data table component
+│   │   ├── empty-state/            # Empty state UI component
+│   │   └── header/                 # Header component
+│   │
+│   ├── shared/                     # Shared components and utilities
+│   │   ├── delete-modal/           # Delete confirmation modal component
+│   │   ├── icon-button/            # Icon button component
+│   │   └── translation/            # Translation helpers
+│   │       └── index.js            # Entry point for translations
+│   │
+│   ├── mock/                       # Mock data or file system utilities
+│   │   └── fs.js                   # Mock file system
+│   │
+│   ├── services/                   # Service layer (API, routing)
+│   │   ├── data-service.js         # API service or data handler
+│   │   └── router.js               # Routing configuration
+│   │
+│   ├── store/                      # State management
+│   │   ├── action.js               # Actions for state management
+│   │   └── store.js                # Store configuration
+│   │
+│   ├── translations/locales/       # Localization files
+│   │   ├── en.json                 # English translations
+│   │   └── tr.json                 # Turkish translations
+│   │
+│   ├── app.css                     # Global styles
+│   └── app.js                      # Main application logic
+│
+├── .husky/              # Git hooks (pre-commit, commit-msg, etc.)
+├── rollup.config.js     # Rollup configuration
+├── webpack.config.js    # Webpack configuration
+├── vite.config.js       # Vite configuration
+├── package.json         # Project metadata and scripts
+└── README.md            # Project documentation
 ```
 
-To serve the site locally, run:
+### Design Pattern: Component-Based Architecture
+The project adheres to the component-based architecture pattern:
 
-```bash
-npm run docs:serve
-```
+  1 - Modularity: Components are isolated and reusable. For example:
 
-To watch the site files, and re-build automatically, run:
+        header-component handles navigation and actions.
+        data-table encapsulates table logic (CRUD operations).
+        empty-state shows a fallback UI when no data exists.
 
-```bash
-npm run docs:gen:watch
-```
+  2 - Single Responsibility:
 
-The site will usually be served at http://localhost:8000.
+        Each component handles one specific task, such as rendering a dropdown or table.
+        State management and routing logic are decoupled from components.
 
-**Note**: The project uses Rollup to bundle and minify the source code for the docs site and not to publish to NPM. For bundling and minification, check the [Bundling and minification](#bundling-and-minification) section.
+  3 - State Management:
 
-## Bundling and minification
+        Redux or MobX manages the global state.
+        Components interact with the global state using dispatch or reactive properties.
 
-As stated in the [static site generation](#static-site) section, the bundling and minification setup in the Rollup configuration in this project is there specifically for the docs generation.
+  4 - Localization:
 
-We recommend publishing components as unoptimized JavaScript modules and performing build-time optimizations at the application level. This gives build tools the best chance to deduplicate code, remove dead code, and so on.
+        All translations (English, Turkish) are stored in JSON files under src/translations/.
+        Language changes are triggered globally and dynamically update the components.
 
-Please check the [Publishing best practices](https://lit.dev/docs/tools/publishing/#publishing-best-practices) for information on publishing reusable Web Components, and [Build for production](https://lit.dev/docs/tools/production/) for building application projects that include LitElement components, on the Lit site.
+  5 - Routing:
 
-## More information
+        Vaadin Router handles page navigation (e.g., when clicking "Add New" in the header).
 
-See [Get started](https://lit.dev/docs/getting-started/) on the Lit site for more information.
+  6 - Build Tools:
+
+        Rollup, Vite, or Webpack optimizes the project for production.
+        Output is generated in the dist/ folder, ready for deployment.
+
+## License
+
+MIT Licensed. See [LICENSE](LICENSE)
