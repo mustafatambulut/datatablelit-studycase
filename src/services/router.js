@@ -1,12 +1,12 @@
 import { Router } from "@vaadin/router";
 
-const outlet = document.querySelector("#outlet"); // Ana kapsayıcı
+const outlet = document.querySelector("#outlet"); 
 const router = new Router(outlet);
 
 router.setRoutes([
   { path: "/", component: "home-page" },
   { path: "/add", component: "add-page" },
-  { path: "(.*)", redirect: "/" }, // 404 için yönlendirme
+  { path: "(.*)", redirect: "/" }, 
 ]);
 
 export { router };

@@ -3,9 +3,9 @@ import { iconButtonStyles } from "./styles.css";
 export class IconButton extends LitElement {
   static styles = iconButtonStyles;
   static properties = {
-    icon: { type: String }, // Font Awesome ikonu adı (ör: 'fa-edit', 'fa-trash')
-    color: { type: String }, // Renk özelliği
-    size: { type: String }, // Boyut özelliği (ör: '16px', '24px')
+    icon: { type: String }, 
+    color: { type: String }, 
+    size: { type: String }, 
   };
   render() {
     return html`

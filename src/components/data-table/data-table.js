@@ -5,14 +5,13 @@ import { IconButton } from "../shared/icon-button";
 import { EmptyState } from "../empty-state";
 import { dataTableStyles } from "./data-table.css.js";
 import "../shared/delete-modal/index";
-// import { store } from "../../store/store.js";
 export class DataTable extends LitElement {
   static styles = dataTableStyles;
 
   static properties = {
     headers: { type: Array },
     data: { type: Array },
-    fdata: { type: Array },
+    fData: { type: Array },
     showModal: { type: Boolean },
     modalData: { type: Object },
     editMode: { type: Boolean },
@@ -23,17 +22,18 @@ export class DataTable extends LitElement {
     currentPage: { type: Number },
     rowsPerPage: { type: Number },
     displayedData: { type: Array },
-    editedRow: { type: Object }, // Added here
-    showAddModal: { type: Boolean }, // Add row modal visibility
+    editedRow: { type: Object },
+    showAddModal: { type: Boolean },
     rows: { type: Array },
-    selectAll: { type: Boolean }, // Tüm satırları seçme durumu
+    selectAll: { type: Boolean },
+    currentLanguage: { type: String },
   };
 
   constructor() {
     super();
     this.headers = [];
     this.data = [];
-    this.fdata = [];
+    this.fData = [];
     this.showModal = false;
     this.modalData = {
       firstName: "",
@@ -58,10 +58,10 @@ export class DataTable extends LitElement {
     this.showAddModal = false; // Control Add Row modal visibility
     this.rows = [];
     this.selectAll = false;
-
+    this.currentLanguage = "en";
     // Translation listen
     translations.subscribe((language) => {
-      this.currentLanguage = language;
+      this.currentLanguage = language || "en";
       this.requestUpdate();
     });
   }
@@ -149,13 +149,6 @@ export class DataTable extends LitElement {
     this.newRow = {};
   }
 
-  // deleteSelectedRows() {
-  //   this.data = this.data.filter(
-  //     (_, index) => !this.selectedRows.includes(index)
-  //   );
-  //   this.selectedRows = [];
-  // }
-
   editRow(rowId) {
     debugger;
     // Find the row in the original data using the id
@@ -171,20 +164,6 @@ export class DataTable extends LitElement {
     this.editedRow = { ...row }; // Create a copy of the row for editing
     this.showModal = true; // Open the modal
   }
-
-  // updateCell() {
-  //   if (this.editMode) {
-  //     // Update existing cell
-  //     let _updatedArray = this.data;
-  //     _updatedArray[this.editRowIndex] = this.modalData;
-  //     this.data = _updatedArray;
-  //     //   this.data = [...this.data, this.modalData];
-  //   } else {
-  //     // Add new row
-  //     this.data = [...this.data, this.modalData];
-  //   }
-  //   this.closeModal();
-  // }
 
   addRow() {
     this.newRow = {}; // Clear any previous data
@@ -226,16 +205,16 @@ export class DataTable extends LitElement {
       this.data[rowIndex] = { ...this.editedRow }; // Save the changes
       this.updateDisplayedData(); // Refresh the displayed data
     } else {
-      this.modalData["id"] = this.fdata.length + 1;
+      // todos
+      this.modalData["id"] =
+        this.data.length > this.fData.length
+          ? this.data.length + 1
+          : this.fData.length + 1;
       this.data = [...this.data, this.modalData];
       this.updateDisplayedData();
+      this.handlePageChange("last");
     }
     this.closeModal(); // Close the modal
-  }
-
-  // Function to cancel adding a new row
-  cancelAddRow() {
-    this.showAddModal = false; // Close the modal without adding the row
   }
 
   removeRow(row) {
@@ -253,15 +232,18 @@ export class DataTable extends LitElement {
         (this.selectAll = !this.selectAll);
       this.currentPage > Math.ceil(this.data.length / this.rowsPerPage) &&
         this.handlePageChange("first");
-      this.selectedRows = [];
     } else {
+      debugger;
       this.data = this.data.filter((row) => row.id !== _row?.id); // Filter out the row by id
       this.updateDisplayedData(); // Refresh the displayed data after removal
-      !!this.displayedData && this.handlePageChange("first");
+      debugger;
+
+      !this.displayedData.length && this.handlePageChange("first");
     }
+
+    this.selectedRows = [];
   }
 
-  // Function to remove selected rows
   removeSelectedRows() {
     this.shadowRoot.querySelector("delete-confirm-modal").show("all");
     // this.data = this.data.filter((row) => !this.selectedRows.includes(row.id)); // Remove selected rows

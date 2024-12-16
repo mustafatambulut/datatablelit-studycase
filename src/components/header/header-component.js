@@ -28,7 +28,6 @@ class HeaderComponent extends LitElement {
 
     this.currentLanguage = translations.currentLanguage;
 
-    // Translation değişimlerini dinle
     translations.subscribe((language) => {
       this.currentLanguage = language;
       this.requestUpdate();
@@ -40,7 +39,7 @@ class HeaderComponent extends LitElement {
   }
 
   closeModal() {
-    this.showModal = false; // Hide the modal
+    this.showModal = false; 
   }
 
   handleClick(action) {
@@ -56,9 +55,8 @@ class HeaderComponent extends LitElement {
     );
   }
 
-  // Seçilen öğeyi güncelleyen fonksiyon
   selectLang(option) {
-    this.currentLanguage = option; // Seçilen öğeyi state'e kaydediyoruz
+    this.currentLanguage = option;
     translations.setLanguage(option);
   }
 

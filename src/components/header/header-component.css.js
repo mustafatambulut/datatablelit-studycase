@@ -39,7 +39,7 @@ export const headerStyles = css`
   }
 
   .icon-logo {
-    width: 40px; /* İkon boyutu */
+    width: 40px;
     height: 40px;
     background-image: url('../../src/assets/images/icons/ing_logo.png');
     background-size: contain;
@@ -47,7 +47,7 @@ export const headerStyles = css`
   }
 
   .icon-en {
-    width: 40px; /* İkon boyutu */
+    width: 40px;
     height: 40px;
     background-image: url('../../src/assets/images/icons/en.png');
     background-size: contain;
@@ -55,7 +55,7 @@ export const headerStyles = css`
   }
 
   .icon-tr {
-    width: 40px; /* İkon boyutu */
+    width: 40px;
     height: 40px;
     background-image: url('../../src/assets/images/icons/tr.jpg');
     background-size: contain;

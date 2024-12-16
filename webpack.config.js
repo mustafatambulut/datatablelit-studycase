@@ -3,27 +3,27 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "production", // 'development' for dev builds
-  entry: "./src/app.js", // Projenizin giriş noktası
+  mode: "production",
+  entry: "./src/app.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   devServer: {
     static: "./dist",
-    port: 3000, // Development server için kullanılacak port
+    port: 3000,
   },
   module: {
     rules: [
       {
-        test: /\.css$/i, // CSS dosyaları için
+        test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader", // Modern JavaScript kodunu dönüştürmek için
+          loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env"],
           },
@@ -32,9 +32,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(), // Önceki build dosyalarını temizler
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./dev/index.html", // Şablon olarak kullanılacak HTML dosyası
+      template: "./dev/index.html",
     }),
   ],
 };

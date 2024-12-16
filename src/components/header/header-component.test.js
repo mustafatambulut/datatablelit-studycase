@@ -6,7 +6,7 @@ describe('Header Component', () => {
   it('should render with default title', async () => {
     const el = await fixture(html`<header-component></header-component>`);
     const title = el.shadowRoot.querySelector('h1');
-    expect(title.textContent).to.equal('Header Title'); // Varsayılan başlık
+    expect(title.textContent).to.equal('Header Title'); 
   });
 
   it('should render with a custom title', async () => {
@@ -14,7 +14,7 @@ describe('Header Component', () => {
       html`<header-component title="Custom Title"></header-component>`
     );
     const title = el.shadowRoot.querySelector('h1');
-    expect(title.textContent).to.equal('Custom Title'); // Özel başlık
+    expect(title.textContent).to.equal('Custom Title'); 
   });
 
   it('should render icons', async () => {
@@ -27,8 +27,8 @@ describe('Header Component', () => {
       html`<header-component .icons="${icons}"></header-component>`
     );
     const iconElements = el.shadowRoot.querySelectorAll('.icon');
-    expect(iconElements.length).to.equal(icons.length); // İkon sayısı doğru olmalı
-    expect(iconElements[0].getAttribute('title')).to.equal('home'); // İlk ikonun adı 'home' olmalı
+    expect(iconElements.length).to.equal(icons.length); 
+    expect(iconElements[0].getAttribute('title')).to.equal('home'); 
   });
 
   it('should trigger action on icon click', async () => {
@@ -40,7 +40,7 @@ describe('Header Component', () => {
 
     const icon = el.shadowRoot.querySelector('.icon');
     icon.click();
-    expect(clicked).to.be.true; // Tıklama aksiyonu çalışmalı
+    expect(clicked).to.be.true; 
   });
 
   it('should project slot content', async () => {
@@ -50,7 +50,7 @@ describe('Header Component', () => {
       >`
     );
     const slotContent = el.querySelector('#slot-test');
-    expect(slotContent).to.exist; // Slot içeriği olmalı
-    expect(slotContent.textContent).to.equal('Extra Content'); // Slot içeriği doğru olmalı
+    expect(slotContent).to.exist; 
+    expect(slotContent.textContent).to.equal('Extra Content'); 
   });
 });

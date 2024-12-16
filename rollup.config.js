@@ -5,23 +5,24 @@ import replace from "@rollup/plugin-replace";
 import babel from "@rollup/plugin-babel";
 import html from "@rollup/plugin-html";
 import serve from "rollup-plugin-serve";
+import copy from "rollup-plugin-copy";
 
 export default {
-  input: "src/app.js", // Giriş dosyası (projenin ana dosyası)
+  input: "src/app.js",
   output: {
-    file: "dist/bundle.js", // Çıkış dosyası
-    format: "es", // ES module formatında çıktıyı sağlar
+    file: "dist/bundle.js",
+    format: "es",
     sourcemap: true,
     publicPath: "/",
   },
   plugins: [
-    resolve(), // Node modüllerini çözümler
-    commonjs(), // CommonJS modüllerini ES modüllerine dönüştürür
+    resolve(),
+    commonjs(),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
       preventAssignment: true,
     }),
-    terser(), // Kodun minify edilmesini sağlar
+    terser(),
     babel({
       exclude: "node_modules/**",
       presets: ["@babel/preset-env"],
@@ -29,6 +30,20 @@ export default {
     }),
     html({
       include: "**/*.html",
+    }),
+    copy({
+      targets: [{ src: "index.html", dest: "dist" }],
+    }),
+    serve({
+      open: true,
+      verbose: true,
+      contentBase: ["", "src", "dist"],
+      host: "0.0.0.0",
+      port: 3001,
+      historyApiFallback: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
     }),
   ],
 };
